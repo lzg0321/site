@@ -6,11 +6,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>test</title>
     <script src="index.js"></script>
+    <style>
+        iframe {
+            width: 80%;
+            height: 200px;
+            display: block;
+            margin: 0 auto;
+        }
+    </style>
 </head>
 <body>
 <div id="main-content">
     这里是父页面
+
     <iframe src="./subpage.html"></iframe>
+    <script>
+      window.addEventListener("message",function(){
+        console.log('arguments', arguments);
+      });
+    </script>
 </div>
 </body>
 </html>

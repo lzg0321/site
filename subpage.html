@@ -3,8 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+
 </head>
 <body>
 这个是测试子页面
+<button id="btn">点我向父页面发送消息</button>
+<script>
+  btn.onclick = function () {
+    window.parent.postMessage("你好我是游戏", "*");
+  }
+</script>
 </body>
 </html>
