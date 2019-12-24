@@ -10,7 +10,7 @@
 <button id="btn">点我向父页面发送消息</button>
 <script type="text/javascript">
   btn.onclick = function () {
-    window.parent.postMessage("你好我是游戏", "*");
+    window.parent.postMessage(JSON.stringify({message: "你好我是游戏" , type: 'game'}), "*");
   }
 </script>
 </body>

@@ -21,7 +21,16 @@
 
     <iframe src="./subpage.html"></iframe>
     <script type="text/javascript">
-      window.addEventListener("message",function(){
+      window.addEventListener("message",function(event){
+        var dataStr = event.data;
+        try {
+          var data = JSON.parse(dataStr)
+          if (data.type === 'game') {
+            alert('我是父页面，我收到了来自游戏的信息：' + data.message);
+          }
+        } catch (e) {
+
+        }
         console.log('arguments', arguments);
       });
     </script>
