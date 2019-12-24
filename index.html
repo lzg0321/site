@@ -18,7 +18,7 @@
 <body>
 <div id="main-content">
     这里是父页面
-
+    <button id="btn">点我向子页面发送消息</button>
     <iframe src="./subpage.html"></iframe>
     <script type="text/javascript">
       window.addEventListener("message",function(event){
@@ -31,8 +31,10 @@
         } catch (e) {
 
         }
-        console.log('arguments', arguments);
       });
+      btn.onclick = function () {
+        window.frames[0].postMessage({message: '你好游戏, 我是父页面' , type: 'game'}, "*");
+      }
     </script>
 </div>
 </body>

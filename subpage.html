@@ -9,8 +9,19 @@
 这个是测试子页面
 <button id="btn">点我向父页面发送消息</button>
 <script type="text/javascript">
+  window.addEventListener("message",function(event){
+    var dataStr = event.data;
+    try {
+      var data = JSON.parse(dataStr);
+      if (data.type === 'game') {
+        alert('我是游戏，我收到了来自父页面的信息：' + data.message);
+      }
+    } catch (e) {
+
+    }
+  });
   btn.onclick = function () {
-    window.parent.postMessage(JSON.stringify({message: "你好我是游戏" , type: 'game'}), "*");
+    window.parent.postMessage(JSON.stringify({message: "你好,我是游戏" , type: 'game'}), "*");
   }
 </script>
 </body>
